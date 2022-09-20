@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+body{
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container{
+    padding: 20px;
+}
+
+.container .app-title{
+    background-color: white;
+    padding: 1px 40px;
+    border-radius: 20px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.7);
+}
+
+.container .description{
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.7);
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.content{
+    padding: 0 3px;
+}
+
+.content .content-title{
+    font-size: 20px;
+    background-color: white;
+    padding: 1px 30px;
+    border-radius: 20px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.7);
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.endpoints .endpoint-title{
+    padding: 1px 30px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+.endpoints .endpoint-title:hover{
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.endpoints .endpoint-title .desc{
+    font-weight: 200;
+    margin-left: 100px;
+    color:black !important;
+    font-size: 15px;
+    display: none;
+}
+
+.endpoint-title:hover .desc{
+    display: inline-block
+}
+
+#user{
+    background-color: rgb(74, 146, 235);
+}
+
+#chat{
+    background-color: rgb(235, 84, 84);
+}
+
+#message{
+    background-color: rgb(235, 160, 84);
+}
+
+.endpoint-content{
+    display: none;
+    margin: auto 30px;
+}
+
+.endpoint-content .element{
+    margin: 30px auto;
+}
+
+.element h5{
+    background-color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.element .get{
+    color: rgb(0, 180, 36);
+}
+
+.element .post{
+    color: orange;
+}
+
+.element .put{
+    color: rgb(36, 102, 236);
+}
+
+.element .delete{
+    color: rgb(247, 48, 48);
+}
+
+.element .element-content p{
+    background-color: rgb(236, 236, 236);
+    padding: 10px;
+    border: 1px solid rgb(156, 156, 156);
+    border-radius: 5px;
+}
+
+.element pre{
+    background-color: rgb(232, 232, 232);
+    border-radius: 10px;
+    border: 1px solid rgb(199, 199, 199);
+    font-family: monospace;
+    padding-bottom: 17px;
+    padding-right: 20px;
+    overflow: auto;
+}
+
+.element pre code{
+    color:rgb(222, 118, 0)
+}
+
+.element pre code span{
+    color:rgb(0, 180, 36)
+}
+
+.element pre code .black{
+    color: black;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    display: none;
+    transition: all .2s ease-in-out;
+}
+
+.scroll-to-top button{
+    height: 50px;
+    width: 50px;
+    border: 1px solid white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.500);
+    background-color: #fffffffb;
+    font-size: 25px;
+    color: rgb(0, 94, 183);
+    animation: bounceInUp 1s;
+    cursor: pointer;
+}
+
+@keyframes bounceInUp {
+    0% {
+       opacity: 0;
+       transform: translateY(2000px);
+    }
+    60% {
+       opacity: 1;
+       transform: translateY(-30px);
+    }
+    80% {
+       transform: translateY(10px);
+    }
+    100% {
+       transform: translateY(0);
+    }
+}
+
+@media (max-width: 500px) {
+    .endpoints .endpoint-title .desc{
+        margin-left: 10px;
+    }
+}

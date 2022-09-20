@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIChat</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/chat.png">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <div class="container">
+        <div class="app-title">
+            <h1><i class="fad fa-cog"></i> <i class="fad fa-comment-dots"></i> APIChat</h1>
+        </div>
+        <div class="description">
+            <p>Esta es un API que funciona como servicio para una aplicación de conversación por mensajes (Chat).</p>
+        </div>
+        <div class="content">
+            <div class="content-title">
+                <h3>Endpoints</h3>
+            </div>
+            <div class="endpoints">
+                <div class="user">
+                    <div class="endpoint-title" id="user">
+                        <h4><i class="fad fa-user"></i> Usuarios <span class="desc">Manejo de usuarios.</span></h4>
+                    </div>
+                    <div class="endpoint-content">
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener todos</h5>
+                            <div id="get-all-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/user</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener uno</h5>
+                            <div id="get-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/user/:id</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="post">POST</span> Insertar</h5>
+                            <div id="add-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/user</p>
+<pre><code>
+    {
+        "nombre": <span>string</span>,
+        "apellido": <span>string</span>,
+        "correo": <span>string</span>,
+        "contrasena": <span>string</span> <span class="black">(minimo 5 digitos)</span>
+    }
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="put">PUT</span> Editar</h5>
+                            <div id="edit-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/user/:id</p>
+<pre><code>
+    {
+        "nombre": <span>string</span>,
+        "apellido": <span>string</span>,
+        "correo": <span>string</span>,
+        "contrasena": <span>string</span> <span class="black">(minimo 5 digitos)</span>
+    }
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="delete">DELETE</span> Eliminar</h5>
+                            <div id="delete-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/user/:id</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="post">POST</span> Login</h5>
+                            <div id="log-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/user/log</p>
+<pre><code>
+    {
+        "correo": <span>string</span>,
+        "contrasena": <span>string</span> <span class="black">(minimo 5 digitos)</span>
+    }
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener mensajes de un usuario</h5>
+                            <div id="get-user-message" class="element-content">
+                                <p>{{Dominio}}/APIChat/user/:id/message</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener chats de un usuario</h5>
+                            <div id="get-user-chat" class="element-content">
+                                <p>{{Dominio}}/APIChat/user/:id/chat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat">
+                    <div class="endpoint-title" id="chat">
+                        <h4><i class="fad fa-comments"></i> Chats <span class="desc">Manejo de conversaciones.</span></h4>
+                    </div>
+                    <div class="endpoint-content">
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener todos</h5>
+                            <div id="get-all-chat" class="element-content">
+                                <p>{{Dominio}}/APIChat/chat</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener uno</h5>
+                            <div id="get-chat" class="element-content">
+                                <p>{{Dominio}}/APIChat/chat/:id</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="post">POST</span> Insertar</h5>
+                            <div id="add-chat" class="element-content">
+                                <p>{{Dominio}}/APIChat/chat</p>
+<pre><code>
+    {
+        "usuarios": <span>[string]</span> - <span class="black">[ObjectID] (Array) (minimo 2 usuarios)</span>
+    }
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="delete">DELETE</span> Eliminar</h5>
+                            <div id="delete-chat" class="element-content">
+                                <p>{{Dominio}}/APIChat/chat/:id</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="put">PUT</span> Añadir usuarios</h5>
+                            <div id="add-chat-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/chat/:id/addUsers</p>
+<pre><code>
+    {
+        "usuarios": <span>[string]</span> - <span class="black">[ObjectID] (Array)</span>
+    }
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="put">PUT</span> Eliminar usuarios</h5>
+                            <div id="delete-chat-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/chat/:id/deleteUsers</p>
+<pre><code>
+    {
+        "usuarios": <span>[string]</span> - <span class="black">[ObjectID] (Array)</span>
+    }
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener mensajes de un chat</h5>
+                            <div id="get-chat-message" class="element-content">
+                                <p>{{Dominio}}/APIChat/chat/:id/message</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message">
+                    <div class="endpoint-title" id="message">
+                        <h4><i class="fad fa-comment-dots"></i> Mensajes <span class="desc">Manejo de mensajes.</span></h4>
+                    </div>
+                    <div class="endpoint-content">
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener todos</h5>
+                            <div id="get-all-message" class="element-content">
+                                <p>{{Dominio}}/APIChat/message</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="get">GET</span> Obtener uno</h5>
+                            <div id="get-message" class="element-content">
+                                <p>{{Dominio}}/APIChat/message/:id</p>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="post">POST</span> Insertar</h5>
+                            <div id="add-message" class="element-content">
+                                <p>{{Dominio}}/APIChat/message</p>
+<pre><code>
+    {
+        "chat": <span>string</span> - <span class="black">ObjectID</span>,
+        "de": <span>string</span> - <span class="black">ObjectID</span>,
+        "mensaje": <span>string</span>
+    }
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="put">PUT</span> Editar</h5>
+                            <div id="add-chat-user" class="element-content">
+                                <p>{{Dominio}}/APIChat/message/:id</p>
+<pre><code>
+    {
+        "chat": <span>string</span> - <span class="black">ObjectID</span>,
+        "de": <span>string</span> - <span class="black">ObjectID</span>,
+        "mensaje": <span>string</span>
+    }
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="element">
+                            <h5><span class="delete">DELETE</span> Eliminar</h5>
+                            <div id="delete-message" class="element-content">
+                                <p>{{Dominio}}/APIChat/message/:id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="btnToTop" class="scroll-to-top">
+        <button>
+            <i class="fad fa-angle-up"></i>
+        </button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
